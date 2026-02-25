@@ -1,0 +1,265 @@
+{
+    "objects": [
+        {
+            "id": "bed",
+            "tagName": "Bed",
+            "mass": 100,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "pillow",
+            "tagName": "Pillow",
+            "mass": 15,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "closet",
+            "tagName": "Closet",
+            "mass": 80,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "carpet",
+            "tagName": "Carpet",
+            "mass": 30,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "chair",
+            "tagName": "Chair",
+            "mass": 40,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "desk",
+            "tagName": "Desk",
+            "mass": 70,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "lamp",
+            "tagName": "Lamp",
+            "mass": 30,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "pen",
+            "tagName": "Pen",
+            "mass": 5,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "pencil",
+            "tagName": "Pencil",
+            "mass": 5,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "bin",
+            "tagName": "Bin",
+            "mass": 15,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "paper_ball",
+            "tagName": "Paper Ball",
+            "mass": 2,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "balloon",
+            "tagName": "Balloon",
+            "mass": 20,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "notebook",
+            "tagName": "Notebook",
+            "mass": 10,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "bedside_table",
+            "tagName": "Bedside Table",
+            "mass": 50,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "bedside_lamp",
+            "tagName": "Bedside Lamp",
+            "mass": 20,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "library",
+            "tagName": "Library",
+            "mass": 90,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "book",
+            "tagName": "Book",
+            "mass": 10,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "laptop",
+            "tagName": "Laptop",
+            "mass": 15,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "alarm_clock",
+            "tagName": "Alarm Clock",
+            "mass": 10,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "hanger",
+            "tagName": "Hanger",
+            "mass": 5,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "CD",
+            "tagName": "CD",
+            "mass": 2,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "clothes",
+            "tagName": "Clothes",
+            "mass": 10,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "tv",
+            "tagName": "TV",
+            "mass": 55,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "remote",
+            "tagName": "Remote Control",
+            "mass": 7,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "key",
+            "tagName": "Key",
+            "mass": 2,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "mug",
+            "tagName": "Mug",
+            "mass": 4,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "phone",
+            "tagName": "Phone",
+            "mass": 5,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "lighter",
+            "tagName": "Lighter",
+            "mass": 5,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        },
+        {
+            "id": "charger",
+            "tagName": "Charger",
+            "mass": 2,
+            "meshes": [
+                "mesh1"
+            ],
+            "grabbable": true
+        }
+    ]
+}
