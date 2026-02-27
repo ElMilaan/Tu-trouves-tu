@@ -19,7 +19,6 @@ public class ItemManager : MonoBehaviour
             return;
         }
 
-        // Désérialisation avec Newtonsoft
         ObjectList objectList = JsonConvert.DeserializeObject<ObjectList>(jsonFile.text);
 
         if (objectList?.objects == null)
