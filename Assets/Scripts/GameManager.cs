@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
@@ -12,26 +10,19 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("Paramètres du jeu")]
-    [Tooltip("Durée du jeu en secondes (60 = 1 minute)")]
     public float gameDuration = 60f;
 
-    [Header("UI Références")]
-    public TextMeshProUGUI timerText;           // Texte du compteur
-    public TextMeshProUGUI objectiveListText;   // Liste des objets à trouver
-    public GameObject resultPanel;             // Panel résultat (fin de jeu)
-    public TextMeshProUGUI resultText;          // Texte du résultat
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI objectiveListText;
+    public GameObject resultPanel;
+    public TextMeshProUGUI resultText;
 
-    [Header("Objets à collecter")]
-    [Tooltip("Remplir avec les IDs des objets que le joueur doit trouver")]
     public List<string> requiredObjectIDs = new List<string>();
 
-    // --- État interne ---
     private float timeRemaining;
     private bool gameActive = false;
     private List<string> collectedIDs = new List<string>();
 
-    // ---------------------------------------------------------------
     void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
@@ -98,14 +89,14 @@ public class GameManager : MonoBehaviour
     {
         resultPanel.SetActive(true);
 
-        List<string> correctItems   = new List<string>();
-        List<string> missingItems   = new List<string>();
-        List<string> wrongItems     = new List<string>();
+        List<string> correctItems = new List<string>();
+        List<string> missingItems = new List<string>();
+        List<string> wrongItems = new List<string>();
 
         foreach (string id in requiredObjectIDs)
         {
             if (collectedIDs.Contains(id)) correctItems.Add(id);
-            else                            missingItems.Add(id);
+            else missingItems.Add(id);
         }
         foreach (string id in collectedIDs)
         {
