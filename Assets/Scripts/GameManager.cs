@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
         UpdateObjectiveUI();
         
         PlayIntroWithDelay(2.0f);
-
     }
 
     void Update()
