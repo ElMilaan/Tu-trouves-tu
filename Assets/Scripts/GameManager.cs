@@ -1,47 +1,46 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
-/// <summary>
-/// GameManager - Gère le timer, la liste d'objets à collecter et la validation finale.
-/// Placer ce script sur un GameObject vide "GameManager" dans la scène.
-/// </summary>
 public class GameManager : MonoBehaviour
 {
+    // Create a unique instance of the GameManager to access it wherever we are in the project calling GameManager.Instance
+    // This is useful because we don't have to create references everywhere we have to call the manager
     public static GameManager Instance { get; private set; }
-
-    [Header("Paramètres du jeu")]
-    [Tooltip("Durée du jeu en secondes (60 = 1 minute)")]
+    public AudioSource firstCall;
+    
     public float gameDuration = 60f;
-
-    [Header("UI Références")]
-    public TextMeshProUGUI timerText;           // Texte du compteur
-    public TextMeshProUGUI objectiveListText;   // Liste des objets à trouver
-    public GameObject resultPanel;             // Panel résultat (fin de jeu)
-    public TextMeshProUGUI resultText;          // Texte du résultat
-
-    [Header("Objets à collecter")]
-    [Tooltip("Remplir avec les IDs des objets que le joueur doit trouver")]
+    
+    public TextMeshProUGUI timerText;           
+    public TextMeshProUGUI objectiveListText;   
+    public GameObject resultPanel;             
+    public TextMeshProUGUI resultText;          
+    
     public List<string> requiredObjectIDs = new List<string>();
-
-    // --- État interne ---
+    
     private float timeRemaining;
     private bool gameActive = false;
     private List<string> collectedIDs = new List<string>();
-
-    // ---------------------------------------------------------------
+    private bool happeningActive = false;
+    
     void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
-
+    
     void Start()
     {
         resultPanel.SetActive(false);
-        StartGame();
+        timeRemaining = gameDuration;
+        collectedIDs.Clear();
+        gameActive = true;
+        resultPanel.SetActive(false);
+        UpdateObjectiveUI();
+        
+        PlayIntroWithDelay(2.0f);
+
     }
 
     void Update()
@@ -56,38 +55,42 @@ public class GameManager : MonoBehaviour
             timeRemaining = 0f;
             EndGame();
         }
-    }
 
-    // ---------------------------------------------------------------
-    /// <summary>Démarre ou redémarre une partie.</summary>
-    public void StartGame()
+        /*if (timeRemaining <= 55.0f && !happeningActive)
+        {
+            GetComponent<FadeImage>().StartEffect();
+            happeningActive = true;
+        }*/
+    }
+    
+    public void PlayIntroWithDelay(float delay)
     {
-        timeRemaining = gameDuration;
-        collectedIDs.Clear();
-        gameActive = true;
-        resultPanel.SetActive(false);
-        UpdateObjectiveUI();
+        StartCoroutine(PlayAfterDelay(delay));
+    }
+    
+    IEnumerator PlayAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        firstCall.Play();
     }
 
-    /// <summary>Appelé par SuitcaseZone quand un objet est déposé.</summary>
+    // Triggered by DepositZone when an object enter in it
     public void RegisterCollectedObject(string id)
     {
         if (!gameActive) return;
         if (!collectedIDs.Contains(id))
             collectedIDs.Add(id);
-
         UpdateObjectiveUI();
-        Debug.Log($"[GameManager] Objet collecté : {id}");
+        Debug.Log($"Objet collecté : {id}");
     }
 
-    /// <summary>Appelé par SuitcaseZone si un objet est retiré de la valise.</summary>
+    // Triggered by DepositZone when an object is removed from it
     public void UnregisterCollectedObject(string id)
     {
         collectedIDs.Remove(id);
         UpdateObjectiveUI();
     }
-
-    // ---------------------------------------------------------------
+    
     private void EndGame()
     {
         gameActive = false;
@@ -126,12 +129,11 @@ public class GameManager : MonoBehaviour
 
         resultText.text = msg;
     }
-
-    // ---------------------------------------------------------------
+    
     private void UpdateTimerUI()
     {
         int seconds = Mathf.CeilToInt(timeRemaining);
-        timerText.text = $"⏱ {seconds}s";
+        timerText.text = $"{seconds}s";
         timerText.color = seconds <= 10 ? Color.red : Color.white;
     }
 
@@ -147,8 +149,11 @@ public class GameManager : MonoBehaviour
         objectiveListText.text = list;
     }
 
-    // ---------------------------------------------------------------
-    /// <summary>Bouton "Rejouer" dans le panel résultat.</summary>
+    public void launchHappening()
+    {
+        
+    }
+    
     public void OnRestartButton()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(

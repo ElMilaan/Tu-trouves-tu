@@ -31,7 +31,7 @@ public class ItemManager : MonoBehaviour
 
         foreach (var item in objectList.objects)
         {
-            Debug.Log($"Object: {item.getTagName()}, Mass: {item.getMass()}, Meshes: {string.Join(", ", item.getMeshes())}");
+            Debug.Log($"Object: {item.tagName}, Mass: {item.mass}, Meshes: {string.Join(", ", item.meshes)}");
         }
 
         /*foreach (Object obj in objectList.objects)

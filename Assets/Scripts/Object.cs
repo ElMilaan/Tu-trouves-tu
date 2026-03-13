@@ -13,16 +13,16 @@ public class ObjectList
 public class Object
 {
     [JsonProperty("id")]
-    private string id;
+    public string id { get; private set; }
     [JsonProperty("tagName")]
-    private string tagName;
+    public string tagName { get; private set; }
     [JsonProperty("meshes")]
-    private List<string> meshes;
+    public List<string> meshes { get; private set; }
     [JsonProperty("mass")]
-    private float mass;
+    public float mass { get; private set; }
     [JsonProperty("grabbable")]
-    private bool grabbable;
-    private bool isGrabbed;
+    public bool grabbable { get; private set; }
+    public bool isGrabbed { get; private set; }
 
     // CONSTRUCTEUR
     [JsonConstructor]
@@ -35,22 +35,6 @@ public class Object
         this.grabbable = grabbable;
         isGrabbed = false;
     }
-
-    // GETTERS
-    public string getId() { return id; }
-
-    public string getTagName() { return tagName; }
-
-    public List<string> getMeshes() { return meshes; }
-
-    public float getMass() { return mass; }
-
-    public bool getGrabbable() { return grabbable; }
-
-    public bool getIsGrabbed() { return isGrabbed; }
-
-    // SETTERS
-    public void setIsGrabbed(bool isGrabbed) { this.isGrabbed = isGrabbed; }
 
     // METHODS
 
